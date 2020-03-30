@@ -9,11 +9,13 @@ API_TOTAL_ENDPOINT="$BASE_API/all"
 function get_data() {
   country=$1
 
-  arr=($(curl -s $API_ALL_COUNTRIES_ENDPOINT/$country | jq -r ".cases,.deaths,.recovered | @sh"))
+  arr=($(curl -s $API_ALL_COUNTRIES_ENDPOINT/$country | jq -r ".cases,.todayCases,.deaths,.todayDeaths,.recovered | @sh"))
   
   cases=${arr[0]}
-  deaths=${arr[1]}
-  recovered=${arr[2]}
+  today_cases=${arr[1]}
+  deaths=${arr[2]}
+  today_deaths=${arr[3]}
+  recovered=${arr[4]}
 }
 
 function print_result() {
@@ -23,8 +25,8 @@ function print_result() {
   GREEN=$(tput setaf 2)
   YELLOW=$(tput setaf 3)
 
-  echo "${YELLOW}Cases     : ${cases}"
-  echo "${RED}Deaths    : ${deaths}"
+  echo "${YELLOW}Cases     : ${cases} +${today_cases}"
+  echo "${RED}Deaths    : ${deaths} +${today_deaths}"
   echo "${GREEN}Recovered : ${recovered}"
 }
 
