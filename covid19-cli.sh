@@ -9,11 +9,11 @@ API_TOTAL_ENDPOINT="$BASE_API/all"
 function get_data() {
   country=$1
 
-  echo $API_ALL_COUNTRIES_ENDPOINT
-
-  cases=$(curl -s $API_ALL_COUNTRIES_ENDPOINT/$country | jq ".cases")
-  deaths=$(curl -s $API_ALL_COUNTRIES_ENDPOINT/$country | jq ".deaths")
-  recovered=$(curl -s $API_ALL_COUNTRIES_ENDPOINT/$country | jq ".recovered")
+  arr=($(curl -s $API_ALL_COUNTRIES_ENDPOINT/$country | jq -r ".cases,.deaths,.recovered | @sh"))
+  
+  cases=${arr[0]}
+  deaths=${arr[1]}
+  recovered=${arr[2]}
 }
 
 function print_result() {
