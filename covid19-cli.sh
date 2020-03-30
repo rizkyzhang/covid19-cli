@@ -19,9 +19,13 @@ function get_data() {
 function print_result() {
   get_data $1
 
-  echo "Cases     : ${cases}"
-  echo "Deaths    : ${deaths}"
-  echo "Recovered : ${recovered}"
+  RED=$(tput setaf 1)
+  GREEN=$(tput setaf 2)
+  YELLOW=$(tput setaf 3)
+
+  echo "${YELLOW}Cases     : ${cases}"
+  echo "${RED}Deaths    : ${deaths}"
+  echo "${GREEN}Recovered : ${recovered}"
 }
 
 print_result $1
