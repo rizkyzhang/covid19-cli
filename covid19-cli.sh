@@ -2,14 +2,12 @@
 
 VERSION="0.1.0"
 
-BASE_API="https://corona.lmao.ninja"
-API_ALL_COUNTRIES_ENDPOINT="$BASE_API/countries"
-API_TOTAL_ENDPOINT="$BASE_API/all"
+API="https://corona-stats.online"
 
 function get_single_country_stats() {
   country=$1
 
-  stats=($(curl -s $API_ALL_COUNTRIES_ENDPOINT/$country | jq -r ".cases,.todayCases,.deaths,.todayDeaths,.recovered | @sh")) 
+  stats=($(curl -s "${API}/${country}?format=json" | jq -r ".data[] | .cases,.todayCases,.deaths,.todayDeaths,.recovered | @sh"))
 
   cases=${stats[0]}
   today_cases=${stats[1]}
@@ -19,7 +17,7 @@ function get_single_country_stats() {
 }
 
 function get_world_stats() {
-  stats=($(curl -s $API_TOTAL_ENDPOINT | jq -r ".cases,.deaths,.recovered | @sh"))
+  stats=($(curl -s "${API}?format=json" | jq -r ".worldStats | .cases,.todayCases,.deaths,.todayDeaths,.recovered | @sh")) 
 
   cases=${stats[0]}
   deaths=${stats[1]}
