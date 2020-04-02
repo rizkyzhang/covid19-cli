@@ -9,7 +9,7 @@ A minimal COVID-19 tracker.
 ![Covid-19 Deaths](https://covid19-badges.herokuapp.com/deaths/latest)
 
 ## Data Source
-![Coronavirus Tracker API](https://corona-stats.online?format=json)
+[Coronavirus Tracker API](https://corona-stats.online?format=json)
 
 ## Todos
 * Add option to show emojis
