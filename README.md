@@ -5,10 +5,12 @@
 A minimal COVID-19 tracker.
 
 **Live global stats (provided by [fight-covid19/bagdes](https://github.com/fight-covid19/bagdes))**
-
 ![Covid-19 Confirmed](https://covid19-badges.herokuapp.com/confirmed/latest)
 ![Covid-19 Deaths](https://covid19-badges.herokuapp.com/deaths/latest)
 
 ## Data Source
+![Coronavirus Tracker API](https://corona-stats.online?format=json)
 
-https://corona-stats.online
+## Todos
+* Add option to show emojis
+* Add country name validator
