@@ -13,5 +13,7 @@ A minimal COVID-19 tracker.
 [Coronavirus Tracker API](https://corona-stats.online?format=json)
 
 ## Todos
-* Add option to show emojis
-* Add country name validator
+* Option to show emojis
+* Input country names with two words
+* Input country names with three words
+* Country names validator
