@@ -27,7 +27,7 @@ chmod +x covid19-cli.sh
 ```
 
 ## Todos
-* Option to show emojis
 * ~~Input country names with two words~~
-* Input country names with three words
+* ~~Input country names with three words~~
 * Country names validator
+* Option to show emojis
