@@ -10,7 +10,9 @@ function get_stats() {
     return $stats
   fi
   
-  if [ -n "$1" ] && [ -n "$2" ]; then
+  if [ -n "$1" ] && [ -n "$2" ] && [ -n "$3" ]; then
+    country="$1%20$2%20$3"
+  elif [ -n "$1" ] && [ -n "$2" ]; then
     country="$1%20$2"
   else
     country="$1"
