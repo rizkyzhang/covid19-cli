@@ -16,14 +16,14 @@ A minimal COVID-19 tracker.
 Download the compiled version from [Releases tab](https://github.com/rizkyzhang/covid19-cli/releases)
 
 ```
-bash covid19-cli.sh
+bash covid19-cli.sh <country-name|world>
 ```
 
 If you want to make it executable:
 
 ```
 chmod +x covid19-cli.sh
-./covid19-cli.sh
+./covid19-cli.sh <country-name|world>
 ```
 
 ## Todos
