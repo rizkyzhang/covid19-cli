@@ -2,11 +2,11 @@
 
 VERSION="0.1.0"
 
-API="https://corona-stats.online"
+API="https://disease.sh/v3/covid19"
 
 function get_stats() {
   if [ "$1" == "world" ]; then
-    stats=($(curl -s "${API}?format=json" | jq -r ".worldStats | .cases,.todayCases,.deaths,.todayDeaths,.recovered | @sh")) 
+    stats=($(curl -s "${API}/all" | jq -r ".cases,.todayCases,.deaths,.todayDeaths,.recovered | @sh")) 
     return $stats
   fi
   
@@ -18,7 +18,7 @@ function get_stats() {
     country="$1"
   fi
 
-  stats=($(curl -s "${API}/${country}?format=json" | jq -r ".data[] | .cases,.todayCases,.deaths,.todayDeaths,.recovered | @sh"))
+  stats=($(curl -s "${API}/countries/${country}" | jq -r ".cases,.todayCases,.deaths,.todayDeaths,.recovered | @sh"))
 
   return $stats
 }
